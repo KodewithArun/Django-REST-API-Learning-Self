@@ -1,14 +1,7 @@
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.viewsets import ModelViewSet
 from .models import Student
 from .serializers import StudentSerializer
 
-# List and Create View
-class StudentListCreateView(ListCreateAPIView):
+class StudentViewSet(ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
-    
-# Retrieve, Update, and Destroy View
-class StudentDetailView(RetrieveUpdateDestroyAPIView):
-    queryset = Student.objects.all()
-    serializer_class = StudentSerializer
-
